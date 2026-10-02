@@ -16,15 +16,15 @@ import csv, json, os, re, math, sys, time, statistics
 
 MANIFEST="d2_manifest.csv"      # gen_v2가 만든 것
 IMG_DIR="."
-RESULTS="d2_results.csv"
+RESULTS="ui_results.csv"
 MODEL="gemini-3.5-flash-lite"
 API_KEY=""
-W,H=880,600; BW,BH=150,60
+W,H=1024,576; BW,BH=150,60
 SLEEP=4                               # 호출 간 대기(초)
 MAX_PER_RUN=None                      # 한 번에 최대 몇 건(무료면 18 정도로 제한 권장), None=전부
 
-PROMPT=("이 이미지에는 글자가 적힌 버튼이 여러 개 있습니다.\n"
-        "그중 '로그인' 이라고 적힌 버튼의 '중심'의 픽셀 좌표를 구하세요. 이미지 크기는 가로 880, 세로 600입니다.\n"
+PROMPT=("이 이미지에는 가 적힌 버튼이 여러 개 있습니다.\n"
+        "그중 'New' 이라고 적힌 버튼의 '중심'의 픽셀 좌표를 구하세요. 이미지 크기는 가로 1024, 세로 576입니다.\n"
         "설명 없이 JSON만 출력: {\"x\": <정수>, \"y\": <정수>}")
 
 # calib 확정: 정규화(0~1000)·x먼저
